@@ -14,11 +14,15 @@
 #include <queue>
 using namespace std;
 
-
+int main() {
+  
+}
+/*
 
 bool parseLine(string &line, string &movieName, double &movieRating);
 
 int main(int argc, char** argv){
+  
   if(argc < 2){
     cerr << "Not enough arguments provided (need at least 1 argument)." << endl;
     cerr << "Usage: " << argv[ 0 ] << " filename prefix1 prefix2 ... prefix n " << endl;
@@ -35,11 +39,12 @@ int main(int argc, char** argv){
   }
   
 //Create an object of a STL data-structure to store all the movies
+vector<string> movNR;
 
-string line, movieName;
-double movieRating;
+  
+string line;
 // Read each file and store the name and rating
-while (getline (movieFile, line) && parseLine(line, movieName, movieRating)){
+while (getline (movieFile, line)){
   // Use std::string movieName and double movieRating
   // to construct your Movie objects
   // cout << movieName << " has rating " << movieRating << endl;
@@ -71,7 +76,7 @@ return 0;
 /* Add your run time analysis for part 3 of the assignment here as commented block*/
 
 
-
+/*
 bool parseLine(string &line, string &movieName, double &movieRating) {
   if(line.length() <= 0) return false;
   string tempRating = "";
@@ -92,3 +97,4 @@ bool parseLine(string &line, string &movieName, double &movieRating) {
   movieRating = stod(tempRating);
   return true;
 }
+*/
