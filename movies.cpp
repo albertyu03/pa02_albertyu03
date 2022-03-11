@@ -3,7 +3,7 @@
 #include "movies.h"
 using namespace std;
 
-double cmp::retRating(string cMovie) const {
+double retRating(string cMovie) {
   string curTrack = "";
 
   int cLength = cMovie.length();
@@ -14,4 +14,17 @@ double cmp::retRating(string cMovie) const {
     curTrack = cMovie.at(i) + curTrack;
   }
   return atof(curTrack.c_str());
+}
+
+string truncName(string cMovie) {
+  string curTrack = "";
+
+  int cLength = cMovie.length();
+  for(int i = 0; i < cMovie.length(); i++) {
+    if(cMovie.at(i) == ',') {
+      break;
+    }
+    curTrack = curTrack + cMovie.at(i);
+  }
+  return curTrack;
 }

@@ -1,6 +1,6 @@
 // Winter'22
 // Instructor: Diba Mirza
-// Student name: 
+// Student name: Albert Yu
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -67,9 +67,42 @@ if(argc == 2){
   
 }
 
-priority_queue<string, vector<string>, cmp> pq;
+vector<string> topNames;
+vector<double> topRatings;
+for(int i = 2; i < argc; i++) {
+  priority_queue<string, vector<string>, cmp> pq;
+  string prefix = argv[i];
+  for(unsigned int a = 0; a < movNR.size(); a++) {
+    int prefLength = prefix.length();
+    string curMovie = movNR.at(a);
+    string actPref = curMovie.substr(0, prefLength);
+    if(actPref.compare(prefix) == 0) {
+      pq.push(curMovie);
+    }
+  }
+  if(pq.empty()) {
+    cout << "NO MATCH FOR " << prefix << endl;
+    topNames.push_back("NONE");
+    topRatings.push_back(-1);
+  } else {
+    topNames.push_back(truncName(pq.top()));
+    topRatings.push_back(retRating(pq.top()));
+    while(!pq.empty()) {
+      cout << pq.top() << endl;
+      pq.pop();
+    }
+    cout << endl;
+  }
+}
 
-
+for(int i = 2; i < argc; i++) {
+  if(topRatings.at(i-2) != -1) {
+  cout << "Best movie with prefix "<< argv[i] <<" is: " << topNames.at(i-2) <<" with rating " << std::fixed << std::setprecision(1) << topRatings.at(i-2) << endl;
+  } else {
+    cout<<"No movies found with prefix "<< argv[i] <<endl<<endl;
+  }
+}
+return 0;
 //  For each prefix,
 //  Find all movies that have that prefix and store them in an appropriate data structure
 //  If no movie with that prefix exists print the following message
