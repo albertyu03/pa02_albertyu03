@@ -48,6 +48,9 @@ while (getline (movieFile, line)){
   // to construct your Movie objects
   // cout << movieName << " has rating " << movieRating << endl;
   // insert elements into your data structure
+  if(line.at(0) == '"') {
+    line = truncQuotes(line);
+  }
   line.insert(line.end() - ratingLen(line), ' ');
   movNR.push_back(line);
 }
@@ -83,7 +86,7 @@ for(int i = 2; i < argc; i++) {
     topNames.push_back(truncName(pq.top()));
     topRatings.push_back(retRating(pq.top()));
     while(!pq.empty()) {
-      cout << truncName(pq.top()) << ", " << std::fixed << std::setprecision(2) << retRating(pq.top()) << endl;
+      cout << truncName(pq.top()) << ", " << std::fixed << std::setprecision(1) << retRating(pq.top()) << endl;
       pq.pop();
     }
     cout << endl;

@@ -6,6 +6,7 @@
 #include <string>
 using namespace std;
 
+string truncQuotes(string cMovie);
 double retRating(string cMovie);
 string truncName(string cMovie);
 int ratingLen(string cMovie);
