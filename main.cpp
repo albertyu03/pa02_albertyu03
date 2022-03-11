@@ -62,7 +62,7 @@ if(argc == 2){
   sort(movNR.begin(), movNR.end());
   //print all the movies in ascending alphabetical order of movie names
   for(unsigned int i = 0; i < movNR.size(); i++) {
-    cout << std::fixed << std::setprecision(1) << movNR.at(i) << endl;
+    cout << truncName(movNR.at(i)) << std::fixed << std::setprecision(1) << ", " << retRating(movNR.at(i)) << endl;
   }
   
 }
