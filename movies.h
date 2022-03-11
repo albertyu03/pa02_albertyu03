@@ -8,6 +8,7 @@ using namespace std;
 
 double retRating(string cMovie);
 string truncName(string cMovie);
+int ratingLen(string cMovie);
 class cmp {
   public:
     bool operator() (string& rate1, string& rate2) const {

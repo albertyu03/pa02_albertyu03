@@ -81,7 +81,6 @@ for(int i = 2; i < argc; i++) {
     }
   }
   if(pq.empty()) {
-    cout << "NO MATCH FOR " << prefix << endl;
     topNames.push_back("NONE");
     topRatings.push_back(-1);
   } else {
@@ -97,7 +96,7 @@ for(int i = 2; i < argc; i++) {
 
 for(int i = 2; i < argc; i++) {
   if(topRatings.at(i-2) != -1) {
-  cout << "Best movie with prefix "<< argv[i] <<" is: " << topNames.at(i-2) <<" with rating " << std::fixed << std::setprecision(1) << topRatings.at(i-2) << endl;
+    cout << "Best movie with prefix "<< argv[i] <<" is: " << topNames.at(i-2) <<" with rating " << std::fixed << std::setprecision(1) << topRatings.at(i-2) << endl;
   } else {
     cout<<"No movies found with prefix "<< argv[i] <<endl<<endl;
   }

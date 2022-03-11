@@ -15,16 +15,23 @@ double retRating(string cMovie) {
   }
   return atof(curTrack.c_str());
 }
-
-string truncName(string cMovie) {
-  string curTrack = "";
+int ratingLen(string cMovie) {
+  int ratLen = 0;
 
   int cLength = cMovie.length();
-  for(int i = 0; i < cMovie.length(); i++) {
-    if(cMovie.at(i) == ',') {
+  for(int i = cLength - 1; i >= 0; i--) {
+    if(cMovie.at(i) == ' ' || cMovie.at(i) == ',') {
       break;
     }
-    curTrack = curTrack + cMovie.at(i);
+    ratLen++;
   }
+  return ratLen;
+}
+
+
+string truncName(string cMovie) {
+  string curTrack = cMovie;
+  curTrack.erase(curTrack.end() - ratingLen(cMovie) - 2, curTrack.end()); //subtract 2 for ", "
   return curTrack;
 }
+
