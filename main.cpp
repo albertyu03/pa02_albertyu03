@@ -12,12 +12,11 @@
 #include <iomanip>
 #include <set>
 #include <queue>
+#include "movies.h"
 using namespace std;
 
-int main() {
-  
-}
-/*
+
+
 
 bool parseLine(string &line, string &movieName, double &movieRating);
 
@@ -49,12 +48,17 @@ while (getline (movieFile, line)){
   // to construct your Movie objects
   // cout << movieName << " has rating " << movieRating << endl;
   // insert elements into your data structure
+  movNr.push_back(line);
 }
 
 movieFile.close();
 
 if(argc == 2){
+  sort(movNR.begin(), movNR.end());
   //print all the movies in ascending alphabetical order of movie names
+  for(unsigned int i = 0; i < movNR.size(); i++) {
+    cout << movNr.at(i) << endl;
+  }
   return 0;
 }
 
