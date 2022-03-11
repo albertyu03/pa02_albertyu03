@@ -48,7 +48,12 @@ while (getline (movieFile, line)){
   // to construct your Movie objects
   // cout << movieName << " has rating " << movieRating << endl;
   // insert elements into your data structure
-  movNr.push_back(line);
+  for(int i = 0; i < line.length(); i++) {
+  	if(line.at(i) == ',') {
+		line.insert(i+1, " ");
+	}
+  }
+  movNR.push_back(line);
 }
 
 movieFile.close();
@@ -57,10 +62,12 @@ if(argc == 2){
   sort(movNR.begin(), movNR.end());
   //print all the movies in ascending alphabetical order of movie names
   for(unsigned int i = 0; i < movNR.size(); i++) {
-    cout << movNr.at(i) << endl;
+    cout << movNR.at(i) << endl;
   }
-  return 0;
+  
 }
+
+priority_queue<string, vector<string>, cmp> pq;
 
 
 //  For each prefix,
